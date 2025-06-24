@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+    {% comment %} <h1>Test</h1> {% endcomment %}
+    <h1>Protein {{protein.gene}}</h1>
+    <table border="1">
+    <tr>
+        <th>gene</th>
+        <th>satellite</th>
+        <th>validation_grade</th>
+        <th>prediction_method</th>
+        <th>microscopy_result</th>
+        <th>motif_enrichment</th>
+        <th>motif_q_score</th>
+        <th>existing_images</th>
+        <th>existing_images_link</th>
+    </tr>
+    <tr>
+        <td>{{protein.gene}}</td>
+        <td>{{protein.satellite}}</td>
+        <td>{{protein.validation_grade}}</td>
+        <td>{{protein.prediction_method}}</td>
+        <td>{{protein.microscopy_result}}</td>
+        <td>{{protein.motif_enrichment}}</td>
+        <td>{{protein.motif_q_score}}</td>
+        <td>{{protein.existing_images}}</td>
+        <td><img src="{{protein.existing_images_link}}" alt="pic" /></td>
+    </tr>
+    </table>
+    <h2>Protein Structure</h2>
+    <div id="viewer"></div>
+    <script type="text/javascript">
+        async function init() {
+            const plugin = await index.initViewer("viewer");
+            const viewer = new molstar.Viewer('app', {
+                layoutIsExpanded: true,
+                layoutShowControls: true,
+            }); 
+            await viewer.loadStructureFromUrl('https://models.rcsb.org/v1/4hhb.bcif', 'bcif');
+            // await viewer.loadStructureFromUrl('https://files.rcsb.org/download/4HHB.pdb', 'pdb');
+            // await viewer.loadPdb('4hhb');\
+        }
+        init();
+    </script>
+{% endblock %}

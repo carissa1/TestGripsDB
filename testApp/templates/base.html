@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% comment %} <link rel="icon" href="icon_image.png"> {% endcomment %}
+    <title>Database</title>
+    {%block style%}
+    {%endblock style%}
+    {% comment %} {% load static %} 
+    <link rel="icon" type='image/png' href="{% static 'icon_img.png' %}"> {% endcomment %}
+    </head>
+    {% load static %}
+    {% comment %} <script type='module' src="{% static 'index.js' %}"></script> {% endcomment %}
+    {% comment %} <script type="text/javascript" src="file:///Users/caris/Documents/CAMPS + INTERNSHIPS/2025 Summer - GRIPS Internship/testDB/testApp/templates/proteins/index.js"></script> {% endcomment %}
+    {% comment %} <script type="text/javascript" src="https://unpkg.com/molstar/build/viewer/molstar.js"></script> {% endcomment %}
+    <body>
+        {%block content%}
+        {%endblock content%}
+    </body>
+</html>

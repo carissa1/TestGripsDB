@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>TF Proteins</h1>
+<table border="1">
+<tr>
+    <th>gene</th>
+    <th>satellite</th>
+    <th>validation_grade</th>
+    <th>prediction_method</th>
+    <th>microscopy_result</th>
+    <th>motif_enrichment</th>
+    <th>motif_q_score</th>
+    <th>existing_images</th>
+    <th>existing_images_link</th>
+</tr>
+{% for protein in proteins %}
+<tr>
+    <td><a href="/proteins/{{protein.gene}}">{{protein.gene}}</a></td>
+    <td>{{protein.satellite}}</td>
+    <td>{{protein.validation_grade}}</td>
+    <td>{{protein.prediction_method}}</td>
+    <td>{{protein.microscopy_result}}</td>
+    <td>{{protein.motif_enrichment}}</td>
+    <td>{{protein.motif_q_score}}</td>
+    <td>{{protein.existing_images}}</td>
+    <td>{{protein.existing_images_link}}</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
