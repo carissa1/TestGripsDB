@@ -1,0 +1,16 @@
+a {
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+body {
+  background-color: rgb(248, 171, 248);
+}
+
+.a_box {
+    background-color: rgb(70, 9, 84);
+    width: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+}

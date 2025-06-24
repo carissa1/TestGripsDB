@@ -2,7 +2,7 @@ import contextlib
 from django.db import models
 from django.utils.text import slugify
 from django.db.models import Count, F, Func, Q, Value
-from django_mongodb_backend.fields import ObjectIdAutoField
+# from django_mongodb_backend.fields import ObjectIdAutoField
 
 # class ProteinManager(models.Manager):
 #     def deep_get(self, name):
@@ -23,7 +23,7 @@ from django_mongodb_backend.fields import ObjectIdAutoField
 
 class ProteinTF(models.Model):
     # my_id = models.IntegerField(primary_key=True)
-    # id = models.IntegerField(primary_key=True)
+    id = models.IntegerField(primary_key=True)
     # id = ObjectIdAutoField(primary_key=True)
     gene = models.SlugField(max_length=20)
     satellite = models.CharField(max_length=20)
@@ -35,6 +35,13 @@ class ProteinTF(models.Model):
     existing_images = models.CharField(max_length=100)
     existing_images_link = models.CharField(max_length=200)
     # slug = models.SlugField(max_length=20, blank=True)
+    
+    # database ID's
+    PDB	= models.CharField(max_length=10)
+    AF3 = models.CharField(max_length=10)
+    UNIPROT = models.CharField(max_length=10)
+    ENSEMBL = models.CharField(max_length=10)
+    proteinatlas = models.CharField(max_length=10)
 
     # class Meta:
         # constraints = []

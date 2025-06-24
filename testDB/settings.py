@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 import os
-import django_mongodb_backend
+# import django_mongodb_backend
 
 from pathlib import Path
 
@@ -35,9 +35,12 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'testApp',
-    'testDB.apps.MongoAdminConfig',
-    'testDB.apps.MongoAuthConfig',
-    'testDB.apps.MongoContentTypesConfig',
+    # 'testDB.apps.MongoAdminConfig',
+    # 'testDB.apps.MongoAuthConfig',
+    # 'testDB.apps.MongoContentTypesConfig',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
@@ -78,8 +81,18 @@ WSGI_APPLICATION = 'testDB.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     "default": django_mongodb_backend.parse_uri('mongodb+srv://carissap39:gripsDB123*@gripsdb.es0mvfb.mongodb.net/?retryWrites=true&w=majority&appName=testDB', db_name='testDB'),
+# }
 DATABASES = {
-    "default": django_mongodb_backend.parse_uri('mongodb+srv://carissap39:gripsDB123*@gripsdb.es0mvfb.mongodb.net/?retryWrites=true&w=majority&appName=testDB', db_name='testDB'),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'testdb',
+        'USER': 'carissap39',
+        'PASSWORD': 'testDB123*',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
 
 # Password validation
@@ -137,13 +150,13 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django_mongodb_backend.fields.ObjectIdAutoField'
+# DEFAULT_AUTO_FIELD = 'django_mongodb_backend.fields.ObjectIdAutoField'
 
-MIGRATION_MODULES = {
-    'admin': 'mongo_migrations.admin',
-    'auth': 'mongo_migrations.auth',
-    'contenttypes': 'mongo_migrations.contenttypes',
-}
+# MIGRATION_MODULES = {
+#     'admin': 'mongo_migrations.admin',
+#     'auth': 'mongo_migrations.auth',
+#     'contenttypes': 'mongo_migrations.contenttypes',
+# }
 
 # STORAGES = {
 #     "staticfiles": {
